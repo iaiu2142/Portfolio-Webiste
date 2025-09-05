@@ -58,24 +58,24 @@ export default function Skills() {
   }
 
   return (
-    <section className="py-20 px-4 bg-slate-800/50">
+    <section className="py-12 px-4 bg-slate-800/50">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
-          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3">
             Technical <span className="text-cyan-400">Skills</span>
           </motion.h2>
-          <p className="text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto">
+          <p className="text-gray-300 text-base sm:text-lg max-w-3xl mx-auto">
             A comprehensive toolkit for building innovative AI and software solutions
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
           {skillCategories.map((category, index) => {
             const IconComponent = category.icon
             return (
@@ -87,16 +87,16 @@ export default function Skills() {
                 viewport={{ once: true }}
               >
                 <Card className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-colors h-full">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-3 text-lg text-white">
-                      <div className={`p-2 rounded-lg ${getColorClasses(category.color).split(" ")[0]}`}>
-                        <IconComponent className="h-5 w-5" />
+                  <CardHeader className="pb-2">
+                    <CardTitle className="flex items-center gap-2 text-sm font-semibold text-white">
+                      <div className={`p-1 rounded ${getColorClasses(category.color).split(" ")[0]}`}>
+                        <IconComponent className="h-3 w-3" />
                       </div>
                       {category.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
+                  <CardContent className="pt-0 pb-3">
+                    <div className="flex flex-wrap gap-1">
                       {category.skills.map((skill, skillIndex) => (
                         <motion.div
                           key={skillIndex}
@@ -107,7 +107,7 @@ export default function Skills() {
                         >
                           <Badge
                             variant="secondary"
-                            className={`${getColorClasses(category.color)} hover:scale-105 transition-transform cursor-default`}
+                            className={`${getColorClasses(category.color)} hover:scale-105 transition-transform cursor-default text-xs px-1.5 py-0.5`}
                           >
                             {skill}
                           </Badge>
