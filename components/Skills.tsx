@@ -3,44 +3,44 @@
 import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Code, Database, Palette, Wrench, Brain, Globe } from "lucide-react"
+import { Code, Database, Globe, Wrench, Brain, Target } from "lucide-react"
 
 export default function Skills() {
   const skillCategories = [
     {
-      title: "Programming Languages",
+      title: "Languages",
       icon: Code,
-      skills: ["Python", "JavaScript", "C++", "SQL"],
+      skills: ["Python", "JavaScript", "SQL"],
       color: "cyan",
     },
     {
-      title: "AI/ML Technologies",
+      title: "AI/ML Tools",
       icon: Brain,
-      skills: ["NumPy", "Pandas", "TensorFlow", "OpenCV", "NLP", "Transformers", "FAISS", "Groq API"],
+      skills: ["NumPy", "Pandas", "Flask", "Matplotlib", "OpenCV", "LLMs"],
       color: "purple",
     },
     {
-      title: "Web Technologies",
+      title: "Web Tools",
       icon: Globe,
-      skills: ["HTML", "CSS", "ReactJS", "Flask", "Django", "Streamlit", "Tailwind CSS"],
+      skills: ["HTML", "CSS", "ReactJS", "WhisperAI", "Streamlit", "Dialogflow", "Hugging Face"],
       color: "green",
     },
     {
-      title: "Tools & Platforms",
-      icon: Wrench,
-      skills: ["Git", "GitHub", "VS Code", "Google Colab", "PyCharm", "Replit"],
-      color: "orange",
-    },
-    {
-      title: "Databases",
+      title: "Social Controls",
       icon: Database,
-      skills: ["MySQL", "PostgreSQL", "MongoDB"],
+      skills: ["Git", "GitHub"],
       color: "blue",
     },
     {
-      title: "Design Tools",
-      icon: Palette,
-      skills: ["CorelDRAW", "Illustrator", "Adobe Photoshop", "Figma", "Draw.io"],
+      title: "IDEs",
+      icon: Wrench,
+      skills: ["VS Code", "Google Colab", "PyCharm", "Sublime", "Replit"],
+      color: "orange",
+    },
+    {
+      title: "Problem Solving",
+      icon: Target,
+      skills: ["170+ LeetCode"],
       color: "pink",
     },
   ]
@@ -48,12 +48,11 @@ export default function Skills() {
   const getColorClasses = (color: string) => {
     const colors = {
       cyan: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
-      surmai: "bg-slate-600/20 text-slate-300 border-slate-600/30",
-      green: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
-      orange: "bg-slate-600/20 text-slate-300 border-slate-600/30",
-      blue: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
-      pink: "bg-slate-600/20 text-slate-300 border-slate-600/30",
       purple: "bg-slate-600/20 text-slate-300 border-slate-600/30",
+      green: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+      blue: "bg-slate-600/20 text-slate-300 border-slate-600/30",
+      orange: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+      pink: "bg-slate-600/20 text-slate-300 border-slate-600/30",
     }
     return colors[color as keyof typeof colors] || colors.cyan
   }
