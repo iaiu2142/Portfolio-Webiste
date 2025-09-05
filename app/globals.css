@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* Only Cyan and Surmai colors */
+    --cyan-primary: 188 100% 50%;
+    --cyan-secondary: 188 95% 45%;
+    --cyan-light: 188 80% 60%;
+    --surmai-primary: 220 15% 25%;
+    --surmai-secondary: 220 10% 35%;
+    --surmai-light: 220 20% 45%;
+    --surmai-dark: 220 25% 15%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+@media (min-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+}
+
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-800;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--cyan-primary));
+  @apply rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--cyan-secondary));
+}
+
+/* Smooth animations */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Custom utilities */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--cyan-primary)), hsl(var(--surmai-light)));
+  @apply bg-clip-text text-transparent;
+}
+
+/* Glass effect */
+.glass {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Custom color classes */
+.text-cyan-custom {
+  color: hsl(var(--cyan-primary));
+}
+
+.text-surmai-custom {
+  color: hsl(var(--surmai-light));
+}
+
+.bg-cyan-custom {
+  background-color: hsl(var(--cyan-primary));
+}
+
+.bg-surmai-custom {
+  background-color: hsl(var(--surmai-primary));
+}
+
+.border-cyan-custom {
+  border-color: hsl(var(--cyan-primary));
+}
+
+.border-surmai-custom {
+  border-color: hsl(var(--surmai-primary));
+}
+
+/* Extra small screens */
+@media (max-width: 475px) {
+  .container {
+    @apply px-3;
+  }
+
+  /* Reduce font sizes for very small screens */
+  .text-3xl {
+    @apply text-2xl;
+  }
+
+  .text-4xl {
+    @apply text-3xl;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+
+  /* Reduce motion for mobile performance */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Optimize touch targets */
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .hover\:scale-105:hover {
+    transform: none;
+  }
+
+  .hover\:scale-110:hover {
+    transform: none;
+  }
+
+  .hover\:shadow-lg:hover {
+    box-shadow: none;
+  }
+}
+
+/* Tablet specific styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    @apply px-6;
+  }
+}
+
+/* Desktop specific styles */
+@media (min-width: 1024px) {
+  .container {
+    @apply px-8;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-height: 500px) and (orientation: landscape) {
+  .min-h-screen {
+    min-height: 100vh;
+  }
+
+  section {
+    @apply py-10;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-cyan-400;
+}
+
+/* Print styles */
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}
