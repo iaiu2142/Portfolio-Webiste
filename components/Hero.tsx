@@ -217,7 +217,7 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Enhanced Profile Image */}
+        {/* Enhanced Profile Image - Floating Style */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -230,27 +230,20 @@ export default function Hero() {
               transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
               className="relative"
             >
-              {/* Outer glow ring */}
-              <motion.div
-                className="absolute inset-0 w-48 h-48 xs:w-56 xs:h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] rounded-full bg-gradient-to-r from-cyan-400/30 to-slate-600/30 blur-xl"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              />
-
-              {/* Main image container */}
-              <div className="relative w-48 h-48 xs:w-56 xs:h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] rounded-full bg-gradient-to-br from-cyan-400 to-slate-600 p-1 shadow-2xl">
-                <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center overflow-hidden relative">
-                  <Image
-                    src="/images/hero-new.png"
-                    alt="Ilsa Afzaal"
-                    width={400}
-                    height={400}
-                    className="w-full h-full object-cover scale-110"
-                    priority
-                  />
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
-                </div>
+              {/* Floating Image with Outline */}
+              <div className="relative">
+                <Image
+                  src="/images/hero-floating.png"
+                  alt="Ilsa Afzaal"
+                  width={400}
+                  height={500}
+                  className="w-56 h-70 xs:w-64 xs:h-80 sm:w-80 sm:h-100 md:w-96 md:h-120 lg:w-[28rem] lg:h-[35rem] xl:w-[32rem] xl:h-[40rem] object-contain drop-shadow-2xl"
+                  style={{
+                    filter: "drop-shadow(0 0 20px rgba(6, 182, 212, 0.3))",
+                  }}
+                  priority
+                />
+                {/* Subtle outline glow */}
               </div>
             </motion.div>
 

@@ -8,7 +8,7 @@ import Image from "next/image"
 
 export default function About() {
   const stats = [
-    { number: "3.89", label: "GPA", icon: GraduationCap, color: "text-cyan-400" },
+    { number: "3.44", label: "GPA", icon: GraduationCap, color: "text-cyan-400" },
     { number: "2000+", label: "Students Mentored", icon: Users, color: "text-slate-300" },
     { number: "15+", label: "Hackathons", icon: Trophy, color: "text-cyan-400" },
     { number: "4", label: "Hackathon Wins", icon: Award, color: "text-slate-300" },
@@ -59,7 +59,7 @@ export default function About() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Enhanced Image */}
+          {/* Enhanced Image - Floating Style */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -67,40 +67,77 @@ export default function About() {
             viewport={{ once: true }}
             className="flex justify-center"
           >
-            <div className="relative group">
-              <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }} className="relative">
-                {/* Glowing background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-slate-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-
-                <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl bg-gradient-to-br from-cyan-400 to-slate-600 p-1 shadow-2xl mx-auto">
-                  <div className="w-full h-full rounded-3xl bg-slate-900 overflow-hidden relative">
-                    <Image
-                      src="/images/about-final.jpg"
-                      alt="About Ilsa"
-                      width={400}
-                      height={400}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
-                  </div>
+            <div className="relative">
+              <motion.div
+                animate={{ y: [-10, 10, -10] }}
+                transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                className="relative"
+              >
+                {/* Floating Image without background */}
+                <div className="relative">
+                  <Image
+                    src="/images/about-final.jpg"
+                    alt="About Ilsa"
+                    width={400}
+                    height={400}
+                    className="w-64 h-64 sm:w-80 sm:h-80 object-cover rounded-3xl drop-shadow-2xl transition-transform duration-300 hover:scale-105"
+                    style={{
+                      filter: "drop-shadow(0 0 20px rgba(6, 182, 212, 0.3))",
+                    }}
+                  />
                 </div>
+              </motion.div>
 
-                {/* Floating badges */}
-                <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
-                  className="absolute -top-4 -right-4 bg-cyan-500/90 backdrop-blur-sm rounded-full px-4 py-2 text-slate-900 font-semibold text-sm shadow-lg"
-                >
-                  AI Expert 🤖
-                </motion.div>
+              {/* Floating badge - only Hackathon Winner */}
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 1 }}
+                className="absolute -bottom-4 -left-4 bg-slate-600/90 backdrop-blur-sm rounded-full px-4 py-2 text-white font-semibold text-sm shadow-lg"
+              >
+                Hackathon Winner 🏆
+              </motion.div>
 
-                <motion.div
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 1 }}
-                  className="absolute -bottom-4 -left-4 bg-slate-600/90 backdrop-blur-sm rounded-full px-4 py-2 text-white font-semibold text-sm shadow-lg"
-                >
-                  Hackathon Winner 🏆
-                </motion.div>
+              {/* Additional floating elements like hero section */}
+              <motion.div
+                animate={{
+                  rotate: 360,
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  rotate: { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
+                  scale: { duration: 4, repeat: Number.POSITIVE_INFINITY },
+                }}
+                className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-cyan-500/30 to-cyan-600/30 rounded-full flex items-center justify-center backdrop-blur-sm border border-cyan-400/20"
+              >
+                <span className="text-lg">🎓</span>
+              </motion.div>
+
+              <motion.div
+                animate={{
+                  rotate: -360,
+                  x: [0, 10, 0],
+                }}
+                transition={{
+                  rotate: { duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
+                  x: { duration: 3, repeat: Number.POSITIVE_INFINITY },
+                }}
+                className="absolute top-1/4 -left-8 w-10 h-10 bg-slate-600/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+              >
+                <Award className="w-5 h-5 text-slate-400" />
+              </motion.div>
+
+              <motion.div
+                animate={{
+                  rotate: [360, 0],
+                  x: [0, -10, 0],
+                }}
+                transition={{
+                  rotate: { duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
+                  x: { duration: 5, repeat: Number.POSITIVE_INFINITY },
+                }}
+                className="absolute bottom-1/4 -right-8 w-10 h-10 bg-cyan-500/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+              >
+                <Trophy className="w-5 h-5 text-cyan-400" />
               </motion.div>
             </div>
           </motion.div>
@@ -131,7 +168,7 @@ export default function About() {
                 transition={{ delay: 0.4 }}
               >
                 Currently pursuing my Bachelor's in Software Engineering at Virtual University of Pakistan with a strong
-                GPA of 3.89. I've been recognized as a Microsoft Gold Student Ambassador and Stanford Code in Place
+                GPA of 3.44. I've been recognized as a Microsoft Gold Student Ambassador and Stanford Code in Place
                 Section Leader.
               </motion.p>
             </div>
