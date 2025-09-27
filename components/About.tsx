@@ -59,7 +59,7 @@ export default function About() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Enhanced Image - Floating Style */}
+          {/* Enhanced Image - Larger and More Responsive */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -73,14 +73,14 @@ export default function About() {
                 transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
                 className="relative"
               >
-                {/* Floating Image without background */}
+                {/* Larger Floating Image - More Responsive Sizes */}
                 <div className="relative">
                   <Image
                     src="/images/about-final.jpg"
                     alt="About Ilsa"
-                    width={400}
-                    height={400}
-                    className="w-64 h-64 sm:w-80 sm:h-80 object-cover rounded-3xl drop-shadow-2xl transition-transform duration-300 hover:scale-105"
+                    width={500}
+                    height={500}
+                    className="w-72 h-72 xs:w-80 xs:h-80 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] lg:w-[32rem] lg:h-[32rem] xl:w-[36rem] xl:h-[36rem] object-cover rounded-3xl drop-shadow-2xl transition-transform duration-300 hover:scale-105"
                     style={{
                       filter: "drop-shadow(0 0 20px rgba(6, 182, 212, 0.3))",
                     }}
@@ -88,16 +88,16 @@ export default function About() {
                 </div>
               </motion.div>
 
-              {/* Floating badge - only Hackathon Winner */}
+              {/* Floating badge - positioned relative to larger image */}
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 1 }}
-                className="absolute -bottom-4 -left-4 bg-slate-600/90 backdrop-blur-sm rounded-full px-4 py-2 text-white font-semibold text-sm shadow-lg"
+                className="absolute -bottom-6 -left-6 bg-slate-600/90 backdrop-blur-sm rounded-full px-4 py-2 text-white font-semibold text-sm shadow-lg"
               >
                 Hackathon Winner 🏆
               </motion.div>
 
-              {/* Additional floating elements like hero section */}
+              {/* Additional floating elements - scaled for larger image */}
               <motion.div
                 animate={{
                   rotate: 360,
@@ -107,9 +107,9 @@ export default function About() {
                   rotate: { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
                   scale: { duration: 4, repeat: Number.POSITIVE_INFINITY },
                 }}
-                className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-cyan-500/30 to-cyan-600/30 rounded-full flex items-center justify-center backdrop-blur-sm border border-cyan-400/20"
+                className="absolute -top-6 -right-6 w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 bg-gradient-to-br from-cyan-500/30 to-cyan-600/30 rounded-full flex items-center justify-center backdrop-blur-sm border border-cyan-400/20"
               >
-                <span className="text-lg">🎓</span>
+                <span className="text-xl sm:text-2xl">🎓</span>
               </motion.div>
 
               <motion.div
@@ -121,9 +121,9 @@ export default function About() {
                   rotate: { duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
                   x: { duration: 3, repeat: Number.POSITIVE_INFINITY },
                 }}
-                className="absolute top-1/4 -left-8 w-10 h-10 bg-slate-600/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+                className="absolute top-1/4 -left-10 sm:-left-12 w-12 h-12 sm:w-14 sm:h-14 bg-slate-600/20 rounded-full flex items-center justify-center backdrop-blur-sm"
               >
-                <Award className="w-5 h-5 text-slate-400" />
+                <Award className="w-6 h-6 sm:w-7 sm:h-7 text-slate-400" />
               </motion.div>
 
               <motion.div
@@ -135,9 +135,40 @@ export default function About() {
                   rotate: { duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
                   x: { duration: 5, repeat: Number.POSITIVE_INFINITY },
                 }}
-                className="absolute bottom-1/4 -right-8 w-10 h-10 bg-cyan-500/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+                className="absolute bottom-1/4 -right-10 sm:-right-12 w-12 h-12 sm:w-14 sm:h-14 bg-cyan-500/20 rounded-full flex items-center justify-center backdrop-blur-sm"
               >
-                <Trophy className="w-5 h-5 text-cyan-400" />
+                <Trophy className="w-6 h-6 sm:w-7 sm:h-7 text-cyan-400" />
+              </motion.div>
+
+              {/* Additional floating elements for larger image */}
+              <motion.div
+                animate={{
+                  rotate: [0, 180, 360],
+                  y: [0, -15, 0],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut",
+                }}
+                className="hidden sm:block absolute top-1/2 -left-8 w-10 h-10 bg-gradient-to-br from-cyan-400/20 to-cyan-500/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+              >
+                <span className="text-lg">🚀</span>
+              </motion.div>
+
+              <motion.div
+                animate={{
+                  rotate: [360, 180, 0],
+                  y: [0, 15, 0],
+                }}
+                transition={{
+                  duration: 10,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut",
+                }}
+                className="hidden sm:block absolute top-1/2 -right-8 w-10 h-10 bg-gradient-to-br from-slate-500/20 to-slate-600/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+              >
+                <span className="text-lg">💡</span>
               </motion.div>
             </div>
           </motion.div>

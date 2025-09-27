@@ -156,54 +156,46 @@ export default function Research() {
                     </Card>
                   </motion.div>
 
-                  {/* YouTube Video Preview */}
+                  {/* Research Poster Preview - Updated with new image */}
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.6 }}
                     whileHover={{ scale: 1.02 }}
                   >
-                    <Card className="bg-slate-700/50 border-slate-600/50 hover:border-red-500/50 transition-colors h-full overflow-hidden">
+                    <Card className="bg-slate-700/50 border-slate-600/50 hover:border-cyan-500/50 transition-colors h-full overflow-hidden">
                       <CardContent className="p-0">
                         <div className="p-4 pb-3">
                           <div className="flex items-center gap-3 mb-3">
-                            <div className="bg-red-600/20 p-2 rounded">
-                              <Video className="h-4 w-4 text-red-400" />
+                            <div className="bg-cyan-600/20 p-2 rounded">
+                              <FileText className="h-4 w-4 text-cyan-400" />
                             </div>
-                            <span className="text-sm font-medium text-white">Poster Presentation</span>
+                            <span className="text-sm font-medium text-white">Research Poster</span>
                           </div>
                         </div>
-                        <div
-                          className="relative overflow-hidden cursor-pointer"
-                          onClick={() => window.open("https://www.youtube.com/shorts/UFrikWX3Vlk", "_blank")}
-                        >
+                        <div className="relative overflow-hidden cursor-pointer">
                           <Image
-                            src="/images/research/presentation-action.png"
-                            alt="Live Poster Presentation at ICHPER 2025 Conference"
+                            src="/images/research/research-poster-full.jpg"
+                            alt="Fracture Detection in X-rays Using Custom CNN And Transfer Learning Models - Research Poster"
                             width={500}
                             height={200}
                             className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
-                          {/* Play button overlay */}
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="bg-red-600/90 backdrop-blur-sm rounded-full p-3 hover:bg-red-500 transition-colors hover:scale-110 duration-300">
-                              <Video className="w-6 h-6 text-white" />
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <div className="bg-cyan-600/90 backdrop-blur-sm rounded-full p-3 hover:bg-cyan-500 transition-colors">
+                              <FileText className="w-6 h-6 text-white" />
                             </div>
-                          </div>
-                          <div className="absolute top-2 right-2 bg-red-600/90 backdrop-blur-sm rounded-full p-1.5 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <ExternalLink className="w-3 h-3 text-white" />
                           </div>
                         </div>
                         <div className="p-4 pt-3">
                           <Button
                             variant="outline"
                             size="sm"
-                            className="w-full border-red-500/50 text-red-400 hover:bg-red-500/10 bg-transparent"
-                            onClick={() => window.open("https://www.youtube.com/shorts/UFrikWX3Vlk", "_blank")}
+                            className="w-full border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 bg-transparent"
                           >
-                            <Video className="h-4 w-4 mr-2" />
-                            Watch Presentation
+                            <FileText className="h-4 w-4 mr-2" />
+                            View Full Poster
                           </Button>
                         </div>
                       </CardContent>
@@ -211,11 +203,62 @@ export default function Research() {
                   </motion.div>
                 </div>
 
-                {/* Research Highlights */}
+                {/* YouTube Video Section - Moved below */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 }}
+                  className="max-w-2xl mx-auto"
+                >
+                  <Card className="bg-slate-700/50 border-slate-600/50 hover:border-red-500/50 transition-colors overflow-hidden">
+                    <CardContent className="p-0">
+                      <div className="p-4 pb-3">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="bg-red-600/20 p-2 rounded">
+                            <Video className="h-4 w-4 text-red-400" />
+                          </div>
+                          <span className="text-sm font-medium text-white">Live Poster Presentation</span>
+                        </div>
+                      </div>
+                      <div
+                        className="relative overflow-hidden cursor-pointer"
+                        onClick={() => window.open("https://www.youtube.com/shorts/UFrikWX3Vlk", "_blank")}
+                      >
+                        <Image
+                          src="/images/research/presentation-action.png"
+                          alt="Live Poster Presentation at ICHPER 2025 Conference"
+                          width={600}
+                          height={300}
+                          className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
+                        {/* Play button overlay */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="bg-red-600/90 backdrop-blur-sm rounded-full p-4 hover:bg-red-500 transition-colors hover:scale-110 duration-300">
+                            <Video className="w-8 h-8 text-white" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="p-4 pt-3">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full border-red-500/50 text-red-400 hover:bg-red-500/10 bg-transparent"
+                          onClick={() => window.open("https://www.youtube.com/shorts/UFrikWX3Vlk", "_blank")}
+                        >
+                          <Video className="h-4 w-4 mr-2" />
+                          Watch Live Presentation
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+
+                {/* Research Highlights */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.0 }}
                   className="bg-slate-700/30 rounded-lg p-6"
                 >
                   <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
@@ -224,9 +267,9 @@ export default function Research() {
                   </h4>
                   <div className="grid sm:grid-cols-2 gap-4">
                     {[
-                      "CNN-based fracture detection",
-                      "96% test accuracy achieved",
-                      "Healthcare AI application",
+                      "Custom CNN with Transfer Learning",
+                      "95.96% accuracy achieved",
+                      "FracAtlas dataset utilized",
                       "International conference selection",
                     ].map((highlight, index) => (
                       <div key={index} className="flex items-center gap-3 text-gray-300">
